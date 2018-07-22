@@ -1,0 +1,34 @@
+.info-modal--text-container {
+	&:last-child {
+		@include margin-bottom(1)
+
+	}
+
+
+}
+.text-container--resume {
+	h3 + p {
+		margin-bottom: $s-main / 2;
+	}
+}
+.resume--item {
+	display: flex;
+	@include margin-top(1)
+
+	.resume--item__year {
+
+		margin-top: 5px;
+		margin-right: $s-main / 4;
+		@media screen and (min-width: $tablet-breakpoint) {
+				margin-right: $s-main / 2;
+		}
+	}
+}
+nav {
+	@include margin-top(1)
+	@include margin-bottom(1)
+
+	a {
+
+	}
+}

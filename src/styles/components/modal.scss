@@ -1,0 +1,61 @@
+.modal-info {
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	padding: $s-main / 4;
+	background-color: $c-black;
+	color: $c-white;
+
+
+	@media screen and (min-width: $tablet-breakpoint) {
+		padding: $s-main / 2;
+	}
+	@media screen and (min-width: $desktop-breakpoint) {
+		padding: $s-main;
+	}
+	.info-modal--text-container {
+		text-align: left;
+		hyphens: auto;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		max-width: $s-main * 8;
+
+		.text-container__links {
+			margin: 0;
+			padding: 0;
+			columns: 2;
+			column-gap: $s-main / 2;
+			list-style: none;
+			width: fit-content;
+		}
+		@media screen and (min-width: $desktop-breakpoint) {
+			margin-left: $s-main * 2;
+		}
+	}
+
+	.info-modal--button {
+		background-color: $c-black;
+		width: $s-main / 2;
+		height: $s-main;
+		position: absolute;
+		bottom: $s-main / 2;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 2;
+
+		a,
+		span {
+			text-decoration: none;
+			color: $c-white;
+			//transform: rotate(90deg);
+			margin: 0 auto;
+			line-height: initial;
+		}
+	}
+	@media screen and (min-width: $desktop-breakpoint) {
+		margin-top: $s-main / 2;
+	}
+}

@@ -1,0 +1,34 @@
+html {
+	box-sizing: border-box;
+	border-collapse: collapse;
+	line-height: 1;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: $c-black;
+}
+
+* {
+	border-collapse: inherit;
+}
+
+*,
+:after,
+:before {
+	box-sizing: inherit;
+}
+
+:not(body) {
+	background-position: 50%;
+	background-size: cover;
+}
+
+
+::selection {
+	color: $c-white;
+	background: $c-black;
+}
+main {
+	::selection {
+		color: $c-black;
+		background: $c-white;
+	}
+}

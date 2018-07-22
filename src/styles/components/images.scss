@@ -1,0 +1,47 @@
+
+.popup {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  .popup-item {
+    pointer-events: none;
+    display: block;
+    position: fixed;
+    right: $s-main;
+    top: $s-main;
+    height: calc(100vh - #{$s-main} * 2);
+    z-index: 1;
+    opacity: 0;
+    // transition: transform 1s $t-smooth_one, opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+
+    transition: transform $delay--total / 2 $t-smooth_one, opacity $delay--total / 2 $t-smooth_one;
+
+    transform: translate3d(0, 3rem, 0) rotateX(10deg) rotateY(-10deg) rotateZ(5deg);
+    &.active {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(-5deg);
+    }
+
+    &.item__handstand {
+        right: $s-main * 4;
+        top: 0;
+    }
+    &.item__nfc {
+        top: $s-main;
+    }
+    &.item__devign {
+
+      height: $s-main / 2;
+        right: $s-main / 2;
+        top: $s-main / 2;
+          &.active {
+        transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0);
+      }
+
+    }
+  }
+}
