@@ -15,9 +15,22 @@
 		a {
 		color: $c-black;
 		text-decoration: none;
+		.name {
+			display: inline;
+		}
+		.jobtitle {
+			display: none;
+		}
 		&:hover {
 			color: $c-black;
+			.name {
+				display: none;
+			}
+			.jobtitle {
+				display: inline;
+			}
 		}
+
 		}
 	}
 	.quote {

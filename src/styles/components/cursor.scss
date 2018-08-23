@@ -68,7 +68,6 @@ $s-cursor: $s-main / 2;
           }
         }
 
-        ,
         &.cross,
         &.next,
         &.prev {
@@ -210,7 +209,9 @@ $s-cursor: $s-main / 2;
 
       &.mail:after {
         content: 'Hi';
-        font-size: ms(1);
+        font-size: 18px;
+        padding-top: calc((#{$s-cursor} / 2) - 10px); // = cursor / 2 - font-size
+
       }
     }
   }
