@@ -29,7 +29,8 @@ body {
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  blockquote {
     font-variant-ligatures: discretionary-ligatures;
     font-family: $font--serif;
     text-align: left;
@@ -76,6 +77,35 @@ body {
       @include margin-top(3);
     }
   }
+
+  h2 {
+    font-size: ms(1);
+    font-family: $font--sans;
+    @include line-height(1.5);
+
+    @media screen and (min-width: $tablet-breakpoint) {
+      font-size: ms(2);
+      @include line-height(2.5);
+
+  }
+
+}
+  blockquote {
+    font-size: ms(1);
+    font-family: $font--sans;
+    @include line-height(1.5);
+
+    @media screen and (min-width: $tablet-breakpoint) {
+      font-size: ms(2);
+      @include line-height(2.5);
+
+  }
+  @media screen and (min-width: $desktop-breakpoint) {
+    font-size: ms(3);
+    @include line-height(4);
+
+  }
+}
 
   .resume--item__year {
     font-size: ms(1);

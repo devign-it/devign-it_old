@@ -1,95 +1,159 @@
 .projects--container {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
-	margin-top: $s-main / 2;
-	a {
-		display: inline-flex;
-		margin-bottom: $s-main / 2;
-		width: 100%;
-		text-decoration: none;
-		color: inherit;
-		@media screen and (min-width: $tablet-breakpoint) {
-			&:nth-child(odd) {
-				margin-right: $s-main / 2;
-			}
+	margin-top: $s-main;
+	width: calc(100% + #{$s-main} * 2);
+	margin-left: -$s-main;
+	overflow-x: hidden;
 
-			width: calc(50% - #{$s-main} / 4);
-		}
-
-
-	}
 	.project-item {
-		border: 2px solid $c-white;
+		width: 100%;
+		height: 100vh;
+		display: inline-flex;
 		display: flex;
+		flex-wrap: no-wrap;
 		flex-direction: column;
 		justify-content: space-between;
+		align-items: center;
+
+		@media screen and (min-width: $tablet-breakpoint) {
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			&--info,
+			&--slider {
+				width: 50%;
+			}
+		}
 
 		&.empty {
 			background-color: $c-white;
 			color: $c-black;
 			padding: $s-main / 4;
 			width: 100%;
+
 			h4 {
 				width: 100%;
 				font-size: ms(2);
-				  @include line-height(2);
+				@include line-height(2);
 			}
-		}
-		// &:hover {
-		// 				border-color: $c-blue;
-		// 	// &--button {
-		// 	// 	animation: $fadeinBottom;
-		// 	//
-		// 	// }
-		// }
-
-
-
-		&--image {
-			width: 100%;
 		}
 
 		&--info {
-			padding: $s-main / 4;
-
-			.info--title {
-				font-size: ms(1);
-				@include margin-top(0);
-				@include line-height(1.5);
+			width: 100%;
+			padding: 0 $s-main / 2 0 $s-main;
+			@media screen and (min-width: $tablet-breakpoint) {
+				width: 50%;
 			}
 
-			.info--text {
-				font-size: ms(0);
+			.info--name {
+				font-size: ms(2);
+				font-family: $font--sans;
+				margin-bottom: $s-main / 2;
 				@include line-height(1.25);
+			}
+
+			.info--title {
+				font-size: ms(3);
+				@include margin-top(0);
+				@include line-height(3);
+			}
+		}
+
+		&--slider {
+			width: 100%;
+			height: 100%;
+			@media screen and (min-width: $tablet-breakpoint) {
+				width: 50%;
+			}
+
+
+
+			.project-item--image {
+				transition: transform $delay--total / 2 $t-smooth_one, opacity $delay--total / 2 $t-smooth_one;
+				transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0);
+				opacity: 1;
+				position: relative;
+				transform-style: preserve-3d;
+
+				&:hover {
+					opacity: 0;
+					transform: translate3d(0, 1.5rem, 0) rotateX(10deg) rotateY(-15deg) rotateZ(5deg);
+
+					&:after {}
+
+					+.project-item--description {
+						transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0);
+						opacity: 1;
+					}
+				}
+			}
+
+
+			.project-item--description {
+				position: absolute;
+				transform: translate3d(0, 1.5rem, 0) rotateX(10deg) rotateY(-15deg) rotateZ(-5deg);
+				transition: transform $delay--total / 2 $t-smooth_one, opacity $delay--total / 2 $t-smooth_one;
+				z-index: -1;
+				opacity: 0;
+				text-align: center;
+				width: 50%;
+
+			}
+
+			.swiper-controls {
+				padding-right: $s-main / 2;
+
+				.swiper-button-next {
+					right: $s-main / 2;
+				}
+
+				.swiper-button-prev {
+					right: $s-main;
+				}
+
+				.swiper-pagination {
+
+					margin-left: $s-main / 2;
+				}
+			}
+
+			img {
+				// box-shadow: 0 10px 25px 0 rgba(0,0,0,0.25);
 			}
 		}
 
 		&--button {
-			opacity: 0;
-			transform: translate3d(0, 3rem, 0) rotateX(10deg) rotateY(-10deg) rotateZ(5deg);
+			font-size: ms(1);
+			display: none;
+			// display: inline-block;
+			// justify-self: flex-start;
+		}
 
-			border-top: 2px solid $c-white;
+		&__debalie {
+			background-color: #F3F3F3;
+			color: $c-black;
+		}
 
-			a {
-				font-size: ms(0);
-				text-decoration: none;
-				width: 100%;
-				color: $c-white;
-				display: inline-block;
-				margin: $s-main / 4;
+		&__anrec {
+			background-color: #FF2615;
+			color: $c-white;
+		}
 
+		&__madebyrens {
+			background-color: #FFD4CB;
+			color: $c-black;
+		}
 
-			}
+		&__heylisten {
+			background-color: #0000ed;
+			color: $c-white;
+		}
 
-			&:hover {
-				background: $c-white;
-
-				a {
-					color: $c-black;
-
-				}
-			}
+		&__streetlights {
+			background-image: linear-gradient(-135deg, #813BF6 0%, #FFAFA2 100%);
+			color: $c-white;
 		}
 	}
 }

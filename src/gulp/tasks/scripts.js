@@ -20,7 +20,7 @@ var customOpts = {
 };
 
 var opts = assign({}, watchify.args, customOpts);
-var b = watchify(browserify(opts).transform("babelify", {presets: ["es2015"]}));
+var b = watchify(browserify(opts).transform("babelify"));
 
 gulp.task('scripts', bundle);
 b.on('update', bundle);
@@ -35,5 +35,5 @@ function bundle() {
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.jsDest))
     .pipe(browserSync.reload({stream:true}))
-    
+
 }

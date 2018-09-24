@@ -1,10 +1,23 @@
 // I had only 12 hours for the development of this portfolio, please bare with me while reading these lines
+// let $ = require("jquery");
+
+// let $ = require('jquery');
+// let Swiper = require('swiper');
+// let TweenMax = require('gsap');
+// import jQuery from 'jquery'
+// import TimelineMax from 'gsap'
+// import TweenLite from 'gsap'
+
+// require('gsap');
 
 (function($, window, document, undefined) {
 
   'use strict';
 
-  console.log('Well hi there Designit developers 🚀 ');
+  console.log('🚀');
+  $(document).ready(function() {
+    $(this).scrollTop(0);
+  });
 
   let changeTitle = function() {
 
@@ -44,48 +57,53 @@
     });
   };
 
+  let popUpitems = function() {
+    let tl = new TimelineMax({paused: true});
+    let xPos = 0;
+    // loop through each element
+    $(".doPopup").each(function(i, el) {
 
-    let popUpitems = function() {
-      let tl = new TimelineMax({paused:true});
-      let xPos =
-      // loop through each element
-      $(".doPopup").each(function(i, el) {
+      let thisRel = $(this).attr("rel"); // caching $(this)
+      let currentItem = $('.' + thisRel);
 
-        let thisRel = $(this).attr("rel"); // caching $(this)
-        let currentItem = $('.' + thisRel);
+      // create a timeline for this element in paused state
+      var tl = new TimelineMax({paused: true});
+      var tlRev = new TimelineMax({paused: true});
 
-        // create a timeline for this element in paused state
-        var tl = new TimelineMax({paused: true});
-
-
-        // create your tween of the timeline in a variable
-        tl
-        .set(currentItem,{willChange:"transform"})
-        .to(currentItem, 0.168, {
-              opacity: 1,
-              rotationY: '10deg',
-              rotationX: '-10deg',
-              rotationZ: '5deg',
-              y: '3rem',
-              skewY: Math.pow(xPos, 2) * -5,
-              skewX: Math.pow(xPos, 2) * -20,
-              ease: Circ.easeOut
-            });
-
-        // store the tween timeline in the javascript DOM node
-        el.animation = tl;
-
-        //create the event handler
-        $(el).on("mouseenter",function(){
-          this.animation.play();
-        }).on("mouseleave",function(){
-          this.animation.reverse();
-        });
-
+      // create your tween of the timeline in a variable
+      tl.set(currentItem, {willChange: "transform"}).to(currentItem, 0.168, {
+        opacity: 0,
+        rotationY: '10deg',
+        rotationX: '-15deg',
+        rotationZ: '5deg',
+        y: '1.5rem',
+        ease: Quint.easeInOut
       });
 
-    };
+      tlRev.set(currentItem, {willChange: "transform"}).to(currentItem, 0.168, {
+        opacity: 1,
+        rotationY: '0',
+        rotationX: '0',
+        rotationZ: '0',
+        y: '0',
+        ease: Quint.easeInOut
+      });
 
+      el.animationRev = tlRev;
+
+      // store the tween timeline in the javascript DOM node
+      el.animation = tl;
+
+      //create the event handler
+      $(el).on("mouseenter", function() {
+        this.animationRev.play();
+      }).on("mouseleave", function() {
+        this.animationRev.reverse();
+      });
+
+    });
+
+  };
 
   let mouseCursor = function() {
     // All creds go to https://murmure.me 👀
@@ -153,6 +171,27 @@
         mouseleave: function() {
           return n.removeClass('link disabled');
         }
+      }), $('.swiper-button-next, .swiper-button-prev').on({
+        mouseenter: function() {
+          return n.addClass('border');
+        },
+        mouseleave: function() {
+          return n.removeClass('border');
+        }
+      }), $('.white .swiper-controls .swiper-button-next, .white .swiper-controls .swiper-button-prev').on({
+        mouseenter: function() {
+          return n.addClass('border-white');
+        },
+        mouseleave: function() {
+          return n.removeClass('border-white');
+        }
+      }), $('.project-item--image').on({
+        mouseenter: function() {
+          return n.addClass('slide-info');
+        },
+        mouseleave: function() {
+          return n.removeClass('slide-info');
+        }
       }), $('.header--container').length && $('.header--container').on({
         mouseenter: function() {
           return n.addClass('scroll');
@@ -210,6 +249,7 @@
       }, 800);
     });
   };
+
   let quoteAnimation = function() {
 
     $(".header--container").mousemove(function(event) {
@@ -217,8 +257,8 @@
       $(".quote").each(function(index, element) {
 
         var xPos = (event.clientX / $(window).width()) + 0.05 / 2,
-            yPos = (event.clientY / $(window).height()) + 0.05 / 2,
-            box = element;
+          yPos = (event.clientY / $(window).height()) + 0.05 / 2,
+          box = element;
         TweenLite.to(box, 2, {
           rotationY: yPos * 10,
           rotationX: xPos * 20,
@@ -233,6 +273,175 @@
     });
   };
 
+  let navigationTabs = function() {
+
+    var clickedTab = $(".main-navigation--item.isActive");
+    var tabWrapper = $(".info-modal--text-container");
+    var activeTab = tabWrapper.find(".isActive");
+    var activeTabHeight = activeTab.outerHeight();
+
+    let stickyEl = $('.main-navigation');
+    let stickyElTop = stickyEl.offset().top;
+
+    let mainElTop = $("#main").offset().top;
+
+    let isNavSticky = false;
+    //navigationSticky();
+
+    activeTab.show();
+    tabWrapper.height(activeTabHeight);
+
+    // flickitySliders();
+    projectSliders();
+
+    $(window).scroll(function() {
+
+      if ($(window).scrollTop() > stickyElTop && stickyEl.hasClass('isSticky') === false) {
+        stickyEl.removeClass('isStatic');
+        stickyEl.removeClass('isOpen');
+        stickyEl.addClass('isSticky');
+      }
+      if ($(window).scrollTop() < stickyElTop && stickyEl.hasClass('isSticky') === true) {
+        stickyEl.removeClass('isSticky');
+        stickyEl.addClass('isStatic');
+        stickyEl.addClass('isOpen');
+
+      }
+      else {
+
+      }
+    });
+
+    // stickyEl.on("click", function() {
+    //   if ($('.main-navigation').hasClass('isSticky') === true) {
+    //     $(this).toggleClass('isStatic', 'isSticky');
+    //     isNavSticky = true;
+    //
+    //   } else {
+    //     isNavSticky = false;
+    //
+    //     return;
+    //   }
+    // });
+
+    $('.main-navigation').click(function() {
+      if (stickyEl.hasClass('isSticky') === true) {
+        stickyEl.removeClass('isStatic');
+        stickyEl.removeClass('isClosed');
+        stickyEl.addClass('isOpen');
+      } else {
+        return
+      }
+    }).mouseleave(function() {
+      if (stickyEl.hasClass('isSticky') === true) {
+        stickyEl.removeClass('isOpen');
+
+      } else {
+        return
+      }
+    });
+
+    $(".main-navigation.isOpen .main-navigation--item").on("click", function() {
+
+      $(".main-navigation--item").removeClass("isActive");
+
+      $(this).addClass("isActive");
+      clickedTab = $(".main-navigation--item.isActive");
+
+      console.log(clickedTab.index())
+
+      activeTab.fadeOut(250, function() {
+
+        $(".info-modal--text-container section").removeClass("isActive");
+
+        var clickedTabIndex = clickedTab.index();
+
+        $(".info-modal--text-container section").eq(clickedTabIndex).addClass("isActive");
+
+        activeTab = $(".info-modal--text-container section.isActive");
+
+        activeTabHeight = activeTab.outerHeight();
+
+        tabWrapper.stop().delay(50).animate({
+          height: activeTabHeight
+        }, 500, function() {
+
+          // Fade in active tab
+          activeTab.delay(50).fadeIn(250);
+
+        });
+      });
+
+    });
+
+  };
+
+  let projectSliders = function() {
+
+    let swiperSlider = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 50,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction'
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    });
+
+  };
+
+  $.fn.isHitTopViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+
+    console.log(elementBottom, viewportTop);
+    // return elementBottom > viewportTop && elementTop < viewportBottom;
+    // return elementBottom >= viewportTop && elementTop < viewportBottom;
+    return elementBottom >= viewportTop && elementTop < viewportBottom;
+
+  };
+
+
+
+    let sectionAddColor = function() {
+
+      // Todah to https://codepen.io/BoyWithSilverWings/pen/MJgQqR
+
+      $(window).on('resize scroll', function() {
+        // $('.project-item').each(function() {
+        //     let activeColor = $(this).attr('id');
+        //     let nav = $('.main-navigation');
+        //   if ($(this).isHitTopViewport()) {
+        //     nav.addClass(activeColor);
+        //     // console.log(activeColor);
+        //   } else {
+        //     nav.removeClass(activeColor);
+        //   }
+        // });
+            let activeColor = $(this).attr('id');
+            let nav = $('.main-navigation');
+          if (  $('.project-item__anrec').isHitTopViewport()) {
+            nav.addClass(activeColor);
+            // console.log(activeColor);
+          } else {
+            nav.removeClass(activeColor);
+          }
+
+      });
+
+    };
+
+
+  navigationTabs();
+  // navigationSticky();
+ sectionAddColor();
   quoteAnimation();
   animateScroll();
   mouseCursor();

@@ -1,0 +1,134 @@
+.swiper-container {
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	list-style: none;
+	padding: $s-main / 2;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+	width: 100%;
+
+	.swiper-wrapper {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		transition-property: transform;
+		box-sizing: content-box;
+		height: 100%;
+
+
+		.swiper-slide {
+			flex-shrink: 0;
+			width: auto;
+			height: 100%;
+			position: relative;
+			transition-property: transform,-webkit-transform;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			img {
+				width: auto;
+				height: auto;
+				max-width: 100vw;
+				max-height: 100vw;
+
+							@media screen and (min-width: $tablet-breakpoint){
+								max-width: 100%;
+								max-height: 100%;
+							}
+				// transform: translate(-50%, -50%);
+				// position: absolute;
+				// left: 50%;
+				// top: 50%;
+			}
+		}
+
+	}
+	.swiper-controls {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-end;
+		justify-content: space-between;
+		position: relative;
+		margin-top: $s-main / 3;
+	}
+
+	.swiper-pagination {
+		text-align: left;
+		transition: 0.3s opacity;
+		transform: translate3d(0,0,0);
+		z-index: 10;
+		&-fraction {
+			// bottom: $s-main / 4;
+			// left: $s-main / 2;
+			font-size: 1.5rem;
+			color: $c-black;
+			// width: 100%;
+		}
+		&.swiper-pagination-progressbar {
+			// width: calc(100% - #{$s-main});
+			// height: 3px;
+			// left: 0;
+			// bottom: 0;
+
+			.swiper-pagination-progressbar-fill {
+				background: $c-black;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				transform: scale(0);
+				transform-origin: left top;
+			}
+		}
+	}
+	&.black {
+		.swiper-pagination-fraction {
+			color: $c-black;
+		}
+		.swiper-button-next,
+		.swiper-button-prev {
+			background-image: url(../assets/images/icon-arrow_black.svg);
+
+		}
+	}
+	&.white {
+		.swiper-pagination-fraction {
+			color: $c-white;
+		}
+		.swiper-button-next,
+		.swiper-button-prev {
+			background-image: url(../assets/images/icon-arrow_white.svg);
+
+		}
+	}
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	position: absolute;
+	width: $s-main / 2;
+	height: $s-main / 2;
+	z-index: 10;
+	cursor: pointer;
+	background-size: $s-main / 3;
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	background-image: url(../assets/images/icon-arrow_black.svg);
+
+}
+
+.swiper-button-next {
+	right: 0;
+}
+
+.swiper-button-prev {
+	right: $s-main / 3;
+	transform: rotate(-180deg);
+	background-position: right top;
+
+}
