@@ -1,4 +1,4 @@
-.modal-info {
+.main-container {
 	position: relative;
 	min-height: 100vh;
 	width: 100%;
@@ -9,10 +9,10 @@
 		padding: $s-main / 2;
 	}
 	@media screen and (min-width: $desktop-breakpoint) {
-		padding: $s-main;
+		padding: $s-main $s-main 0 $s-main;
 	}
 
-	.info-modal--text-container {
+	.main-container--text-container {
 		text-align: left;
 		hyphens: auto;
 		display: flex;
@@ -25,17 +25,12 @@
 			h2,
 			p {
 				max-width: $s-main * 8;
+				margin-left: auto;
+				margin-right: auto;
 			}
+
 		}
 
-		.text-container__links {
-			margin: 0;
-			padding: 0;
-			columns: 2;
-			column-gap: $s-main / 2;
-			list-style: none;
-			width: fit-content;
-		}
 		@media screen and (min-width: $desktop-breakpoint) {
 			//	margin-left: $s-main * 2;
 		}
@@ -43,6 +38,14 @@
 		.text-container--projects {
 			p {
 				margin-top: $s-main / 2;
+			}
+			.text-container__links {
+				margin: 0;
+				padding: 0;
+				columns: 2;
+				column-gap: $s-main / 2;
+				list-style: none;
+				width: fit-content;
 			}
 		}
 
@@ -53,10 +56,9 @@
 				position: relative;
 				justify-content: center;
 				align-items: center;
-
 				img {
 					transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0);
-					max-width: 50vw;
+					max-width: 50vh;
 				}
 
 				blockquote {
@@ -65,18 +67,19 @@
 					max-width: initial;
 					margin: 0;
 				}
+
 				@media screen and (min-width: $tablet-breakpoint) {
-					margin: $s-main 0 0;
+					margin: $s-main / 2 0;
 
 					img {
-						max-width: 75vw;
+						max-width: 65vh;
 					}
 				}
 			}
 		}
 	}
 
-	.info-modal--button {
+	.main-container--button {
 		background-color: $c-black;
 		width: $s-main / 2;
 		height: $s-main;

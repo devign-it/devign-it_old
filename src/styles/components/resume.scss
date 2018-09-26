@@ -1,18 +1,27 @@
-.info-modal--text-container {
+.main-container--text-container {
 	&:last-child {
-		@include margin-bottom(1)
+	//	@include margin-bottom(1)
 
 	}
 
 
 }
 .text-container--resume {
+	h3 {
+		margin-top: $s-main;
+		max-width: $s-main * 8;
+		margin-left: auto;
+		margin-right: auto;
+	}
 	h3 + p {
 		margin-bottom: $s-main / 2;
 	}
 }
 .resume--item {
 	display: flex;
+	max-width: $s-main * 8;
+	margin-left: auto;
+	margin-right: auto;
 	@include margin-top(1)
 
 	.resume--item__year {

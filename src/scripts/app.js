@@ -1,14 +1,4 @@
 // I had only 12 hours for the development of this portfolio, please bare with me while reading these lines
-// let $ = require("jquery");
-
-// let $ = require('jquery');
-// let Swiper = require('swiper');
-// let TweenMax = require('gsap');
-// import jQuery from 'jquery'
-// import TimelineMax from 'gsap'
-// import TweenLite from 'gsap'
-
-// require('gsap');
 
 (function($, window, document, undefined) {
 
@@ -192,6 +182,13 @@
         mouseleave: function() {
           return n.removeClass('slide-info');
         }
+      }), $('.main-navigation').on({
+        mouseenter: function() {
+          return n.addClass('nav');
+        },
+        mouseleave: function() {
+          return n.removeClass('nav');
+        }
       }), $('.header--container').length && $('.header--container').on({
         mouseenter: function() {
           return n.addClass('scroll');
@@ -276,14 +273,14 @@
   let navigationTabs = function() {
 
     var clickedTab = $(".main-navigation--item.isActive");
-    var tabWrapper = $(".info-modal--text-container");
+    var tabWrapper = $(".main-container--text-container");
     var activeTab = tabWrapper.find(".isActive");
     var activeTabHeight = activeTab.outerHeight();
 
     let stickyEl = $('.main-navigation');
     let stickyElTop = stickyEl.offset().top;
 
-    let mainElTop = $("#main").offset().top;
+    let mainElTop = tabWrapper.offset().top;
 
     let isNavSticky = false;
     //navigationSticky();
@@ -296,33 +293,19 @@
 
     $(window).scroll(function() {
 
-      if ($(window).scrollTop() > stickyElTop && stickyEl.hasClass('isSticky') === false) {
+      if ($(window).scrollTop() >= mainElTop && stickyEl.hasClass('isSticky') === false) {
         stickyEl.removeClass('isStatic');
         stickyEl.removeClass('isOpen');
         stickyEl.addClass('isSticky');
+        console.log(stickyElTop)
       }
-      if ($(window).scrollTop() < stickyElTop && stickyEl.hasClass('isSticky') === true) {
+      if ($(window).scrollTop() <= mainElTop && stickyEl.hasClass('isSticky') === true) {
         stickyEl.removeClass('isSticky');
         stickyEl.addClass('isStatic');
         stickyEl.addClass('isOpen');
 
-      }
-      else {
-
-      }
+      } else {}
     });
-
-    // stickyEl.on("click", function() {
-    //   if ($('.main-navigation').hasClass('isSticky') === true) {
-    //     $(this).toggleClass('isStatic', 'isSticky');
-    //     isNavSticky = true;
-    //
-    //   } else {
-    //     isNavSticky = false;
-    //
-    //     return;
-    //   }
-    // });
 
     $('.main-navigation').click(function() {
       if (stickyEl.hasClass('isSticky') === true) {
@@ -343,6 +326,7 @@
 
     $(".main-navigation.isOpen .main-navigation--item").on("click", function() {
 
+      $(".main-navigation").removeClass("madebyrens anrec heylisten debalie streetlights");
       $(".main-navigation--item").removeClass("isActive");
 
       $(this).addClass("isActive");
@@ -352,13 +336,13 @@
 
       activeTab.fadeOut(250, function() {
 
-        $(".info-modal--text-container section").removeClass("isActive");
+        $(".main-container--text-container section").removeClass("isActive");
 
         var clickedTabIndex = clickedTab.index();
 
-        $(".info-modal--text-container section").eq(clickedTabIndex).addClass("isActive");
+        $(".main-container--text-container section").eq(clickedTabIndex).addClass("isActive");
 
-        activeTab = $(".info-modal--text-container section.isActive");
+        activeTab = $(".main-container--text-container section.isActive");
 
         activeTabHeight = activeTab.outerHeight();
 
@@ -394,54 +378,41 @@
 
   };
 
-  $.fn.isHitTopViewport = function() {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).outerHeight();
+  let sectionAddColor = function() {
 
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
+    // Todah to https://codepen.io/BoyWithSilverWings/pen/MJgQqR
 
-    console.log(elementBottom, viewportTop);
-    // return elementBottom > viewportTop && elementTop < viewportBottom;
-    // return elementBottom >= viewportTop && elementTop < viewportBottom;
-    return elementBottom >= viewportTop && elementTop < viewportBottom;
+    $.fn.isHitTopViewport = function() {
+      let viewportTop = $(window).scrollTop();
+      let viewportBottom = viewportTop + $(window).height();
+      let elementTop = $(this).offset().top;
+      let elementBottom = elementTop + $(this).outerHeight();
+      let offsetNav = 64;
+
+      return viewportTop >= elementTop - offsetNav && viewportBottom > elementTop;
+    };
+
+    $(window).on('resize scroll', function() {
+
+      $('.project-item').each(function() {
+
+        let activeColor = $(this).attr('id');
+        let nav = $('.main-navigation');
+
+        if ($(this).isHitTopViewport()) {
+          nav.addClass(activeColor);
+        } else {
+          nav.removeClass(activeColor);
+        }
+      });
+
+    });
 
   };
 
-
-
-    let sectionAddColor = function() {
-
-      // Todah to https://codepen.io/BoyWithSilverWings/pen/MJgQqR
-
-      $(window).on('resize scroll', function() {
-        // $('.project-item').each(function() {
-        //     let activeColor = $(this).attr('id');
-        //     let nav = $('.main-navigation');
-        //   if ($(this).isHitTopViewport()) {
-        //     nav.addClass(activeColor);
-        //     // console.log(activeColor);
-        //   } else {
-        //     nav.removeClass(activeColor);
-        //   }
-        // });
-            let activeColor = $(this).attr('id');
-            let nav = $('.main-navigation');
-          if (  $('.project-item__anrec').isHitTopViewport()) {
-            nav.addClass(activeColor);
-            // console.log(activeColor);
-          } else {
-            nav.removeClass(activeColor);
-          }
-
-      });
-
-    };
-
-
   navigationTabs();
   // navigationSticky();
- sectionAddColor();
+  // sectionAddColor();
   quoteAnimation();
   animateScroll();
   mouseCursor();

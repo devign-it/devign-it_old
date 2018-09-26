@@ -20,17 +20,18 @@ html {
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 }
 // Custom Adjustments
+
 body {
   text-rendering: geometricPrecision;
   font-family: $font--sans;
 
+  blockquote,
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6,
-  blockquote {
+  h6 {
     font-variant-ligatures: discretionary-ligatures;
     font-family: $font--serif;
     text-align: left;
@@ -40,7 +41,7 @@ body {
   h1 {
     @include margin-top(0);
     font-size: 15vw;
-    line-height: 1.1;
+    line-height: 0.95;
 
     span {
       padding: 10px 0;
@@ -51,12 +52,11 @@ body {
     }
   }
 
-
   li a,
   p,
   p a {
-    font-size: ms(0);
-    @include line-height(1);
+    font-size: 1.24rem;
+    @include line-height(1.5);
 
     &:last-child {
       @include margin-bottom(0);
@@ -64,6 +64,12 @@ body {
     @media screen and (min-width: $tablet-breakpoint) {
       @include line-height(1.75);
       font-size: ms(1);
+    }
+  }
+  p {
+    @include margin-bottom(1);
+    &:last-child {
+      @include margin-bottom(0);
     }
   }
 
@@ -82,30 +88,56 @@ body {
     font-size: ms(1);
     font-family: $font--sans;
     @include line-height(1.5);
-
     @media screen and (min-width: $tablet-breakpoint) {
       font-size: ms(2);
       @include line-height(2.5);
-
+    }
   }
 
-}
   blockquote {
     font-size: ms(1);
     font-family: $font--sans;
     @include line-height(1.5);
-
     @media screen and (min-width: $tablet-breakpoint) {
       font-size: ms(2);
       @include line-height(2.5);
-
+    }
+    @media screen and (min-width: $desktop-breakpoint) {
+      font-size: ms(3);
+      @include line-height(4);
+    }
   }
-  @media screen and (min-width: $desktop-breakpoint) {
-    font-size: ms(3);
-    @include line-height(4);
 
+  .info--name {
+    font-size: ms(1);
+    font-family: $font--sans;
+    margin-top: $s-main / 3;
+    @include margin-bottom(1);
+    @include line-height(1.25);
+    @media screen and (min-width: $tablet-breakpoint) {
+      font-size: ms(1);
+    }
+    @media screen and (min-width: $desktop-breakpoint) {
+      font-size: ms(2);
+      @include margin-bottom(2);
+
+    }
   }
-}
+
+  .info--title {
+    font-size: ms(1.5);
+    @include margin-top(0);
+    @include margin-bottom(1.5);
+    @include line-height(2);
+    @media screen and (min-width: $tablet-breakpoint) {
+      font-size: ms(2);
+      @include line-height(2.25);
+    }
+    @media screen and (min-width: $desktop-breakpoint) {
+      font-size: ms(3);
+      @include line-height(3.25);
+    }
+  }
 
   .resume--item__year {
     font-size: ms(1);
