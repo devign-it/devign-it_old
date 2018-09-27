@@ -272,42 +272,45 @@
 
   let navigationTabs = function() {
 
-    var clickedTab = $(".main-navigation--item.isActive");
-    var tabWrapper = $(".main-container--text-container");
-    var activeTab = tabWrapper.find(".isActive");
-    var activeTabHeight = activeTab.outerHeight();
+    let clickedTab = $(".main-navigation--item.isActive");
+    let tabWrapper = $(".main-container--text-container");
+    let activeTab = tabWrapper.find(".isActive");
+    let activeTabHeight = activeTab.outerHeight();
 
-    let stickyEl = $('.main-navigation');
+    let stickyEl = $(".main-navigation");
     let stickyElTop = stickyEl.offset().top;
 
-    let mainElTop = tabWrapper.offset().top;
+    let navItem = $('.main-navigation--item');
 
     let isNavSticky = false;
-    //navigationSticky();
 
+    // Show tabs
     activeTab.show();
     tabWrapper.height(activeTabHeight);
 
-    // flickitySliders();
+    // Initialize sliders
     projectSliders();
 
-    $(window).scroll(function() {
-
-      if ($(window).scrollTop() >= mainElTop && stickyEl.hasClass('isSticky') === false) {
+    let navOnScroll = function() {
+      if (window.pageYOffset >= stickyElTop && stickyEl.hasClass('isSticky') === false) {
         stickyEl.removeClass('isStatic');
         stickyEl.removeClass('isOpen');
         stickyEl.addClass('isSticky');
-        console.log(stickyElTop)
+        stickyEl.addClass('isClosed');
+
       }
-      if ($(window).scrollTop() <= mainElTop && stickyEl.hasClass('isSticky') === true) {
+      if (window.pageYOffset <= stickyElTop && stickyEl.hasClass('isSticky') === true) {
         stickyEl.removeClass('isSticky');
+        stickyEl.removeClass('isClosed');
         stickyEl.addClass('isStatic');
         stickyEl.addClass('isOpen');
 
-      } else {}
-    });
+      } else {
+        return
+      }
+    }
+    let openNav = function() {
 
-    $('.main-navigation').click(function() {
       if (stickyEl.hasClass('isSticky') === true) {
         stickyEl.removeClass('isStatic');
         stickyEl.removeClass('isClosed');
@@ -315,49 +318,82 @@
       } else {
         return
       }
-    }).mouseleave(function() {
+
+    };
+    let closeNav = function() {
       if (stickyEl.hasClass('isSticky') === true) {
         stickyEl.removeClass('isOpen');
+        stickyEl.addClass('isClosed');
 
       } else {
         return
       }
-    });
+    }
 
-    $(".main-navigation.isOpen .main-navigation--item").on("click", function() {
+    let tabModule = function() {
+      navItem.on("click", function() {
 
-      $(".main-navigation").removeClass("madebyrens anrec heylisten debalie streetlights");
-      $(".main-navigation--item").removeClass("isActive");
+        if (stickyEl.hasClass('isOpen') === true) {
 
-      $(this).addClass("isActive");
-      clickedTab = $(".main-navigation--item.isActive");
+          $(".main-navigation--item").removeClass("isActive");
+          $(this).addClass("isActive");
 
-      console.log(clickedTab.index())
+          clickedTab = $(".main-navigation--item.isActive");
+          activeTab.fadeOut(168, function() {
 
-      activeTab.fadeOut(250, function() {
+            $(".main-container--text-container section").removeClass("isActive");
 
-        $(".main-container--text-container section").removeClass("isActive");
+            var clickedTabIndex = clickedTab.index();
 
-        var clickedTabIndex = clickedTab.index();
+            $(".main-container--text-container section").eq(clickedTabIndex).addClass("isActive");
 
-        $(".main-container--text-container section").eq(clickedTabIndex).addClass("isActive");
+            activeTab = $(".main-container--text-container section.isActive");
 
-        activeTab = $(".main-container--text-container section.isActive");
+            activeTabHeight = activeTab.outerHeight();
 
-        activeTabHeight = activeTab.outerHeight();
+            tabWrapper.stop().delay(0).animate({
+              height: activeTabHeight
+            }, 500, function() {
+              // Fade in active tab
+              activeTab.delay(20).fadeIn(168);
 
-        tabWrapper.stop().delay(50).animate({
-          height: activeTabHeight
-        }, 500, function() {
+            });
+          });
+        } else {
+          return
 
-          // Fade in active tab
-          activeTab.delay(50).fadeIn(250);
-
-        });
+        }
       });
+    };
 
+    let navModule = function() {
+      stickyEl.click(function() {
+        if (stickyEl.hasClass('isOpen') === false) {
+          openNav();
+        }
+        if (stickyEl.hasClass('isOpen') === true) {
+          // navOnTab();
+        } else {
+          return
+        }
+
+      }).mouseleave(function() {
+        closeNav();
+      });
+    };
+
+    $(window).scroll(function() {
+      navOnScroll();
     });
 
+    $(window).resize(function() {
+      navModule();
+      tabModule();
+    });
+
+    // Fire up
+    navModule();
+    tabModule();
   };
 
   let projectSliders = function() {

@@ -14,22 +14,25 @@
 // Layouts
 // -------
 @import 'layouts/body';
+@import 'layouts/main';
+@import 'layouts/projects';
+@import 'layouts/about';
+@import 'layouts/resume';
+@import 'layouts/footer';
+
 
 // Objects
 // -------
 @import 'objects/links';
 @import 'objects/animations';
 @import 'objects/typography';
+@import 'objects/scrollindicator';
+
 
 // Components
 // ----------
-@import 'components/main';
 @import 'components/header';
-@import 'components/projects';
 @import 'components/navigation';
-@import 'components/footer';
-@import 'components/scrollindicator';
 @import 'components/images';
 @import 'components/swiper';
 @import 'components/cursor';
-@import 'components/resume';

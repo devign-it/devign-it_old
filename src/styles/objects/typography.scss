@@ -66,6 +66,7 @@ body {
       font-size: ms(1);
     }
   }
+
   p {
     @include margin-bottom(1);
     &:last-child {
@@ -93,7 +94,16 @@ body {
       @include line-height(2.5);
     }
   }
+.main-navigation h2 {
+  font-size: 1.24rem;
+  @media screen and (min-width: $tablet-breakpoint) {
+  	font-size: ms(1);
 
+  			}
+        @media screen and (min-width: $desktop-breakpoint) {
+          font-size: ms(2);
+        }
+}
   blockquote {
     font-size: ms(1);
     font-family: $font--sans;

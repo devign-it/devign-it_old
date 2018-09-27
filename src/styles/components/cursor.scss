@@ -2,8 +2,8 @@ $c-black: #000000;
 $c-white: #ffffff;
 $c-contrast: $c-blue;
 $c-contrast_two: $c-blue;
-$s-cursor: $s-main / 2;
-// Cursor
+$s-cursor: $s-main / 2; // Cursor
+
 .cursor-on {
   @media screen and (min-width: $desktop-breakpoint) {
     cursor: none;
@@ -108,6 +108,7 @@ $s-cursor: $s-main / 2;
         background-color: transparent;
         border: 3px solid $c-black;
         transform: scale(0.9);
+
         &-white {
           border-color: $c-white;
         }
@@ -119,23 +120,23 @@ $s-cursor: $s-main / 2;
 
       &.click,
       &.cross,
+      &.nav,
       &.new,
       &.next,
       &.play,
       &.prev,
-      &.relol,
-      &.nav {
+      &.relol {
         transform: scale(1.2);
       }
 
       &.slide-info {
         transform: scale(0.95);
-
       }
 
       &.click:after,
       &.cross:after,
       &.mail:after,
+      &.nav:after,
       &.new:after,
       &.next-img:after,
       &.next:after,
@@ -227,14 +228,19 @@ $s-cursor: $s-main / 2;
         content: 'Hi';
         font-size: 18px;
         padding-top: calc((#{$s-cursor} / 2) - 10px); // = cursor / 2 - font-size
-
       }
+
       &.slide-info:after {
         content: 'i';
         color: $c-black;
         font-size: 24px;
         padding-top: calc((#{$s-cursor} / 2) - 12px); // = cursor / 2 - font-size
+      }
 
+      &.nav:after {
+        content: '+';
+        color: $c-black;
+        padding-top: calc((#{$s-cursor} / 2) - 15px); // = cursor / 2 - font-size
       }
     }
   }
@@ -249,11 +255,8 @@ $s-cursor: $s-main / 2;
     &.click,
     &.new,
     &.play,
-    &.relol
-    &.slide-info {
+    &.relol &.slide-info {
       transform: scale(1.1);
     }
-
   }
-
 }

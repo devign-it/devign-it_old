@@ -24,25 +24,30 @@ p:not(.author) a,
 	&:before {
 		content: "";
 		position: absolute;
-		bottom: -$link-underline-offset;
 		left: 0;
 		width: 100%;
-		height: $link-underline-width;
 		background-color: $c-white;
 		opacity: 0.2;
 	}
 	&:after {
 		content: "";
 		position: absolute;
-		bottom: -$link-underline-offset;
 		left: 0;
 		width: 100%;
-		height: $link-underline-width;
 		background-color: $c-white;
 		opacity: 1;
 		transition: all $delay--total / 2 $t-smooth_one;
 		transform: scale3d(0, 1, 1);
 		transform-origin: left center;
+	}
+	&:after,
+	&:before {
+		bottom: -$link-underline-offset / 2;
+		height: $link-underline-width / 2;
+		@media screen and (min-width: $tablet-breakpoint) {
+			bottom: -$link-underline-offset;
+			height: $link-underline-width;
+		}
 	}
 	&:focus,
 	&:hover {
