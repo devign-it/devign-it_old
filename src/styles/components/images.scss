@@ -16,10 +16,7 @@
     height: calc(100vh - #{$s-main} * 2);
     z-index: 1;
     opacity: 0;
-    // transition: transform 1s $t-smooth_one, opacity 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-
     transition: transform $delay--total / 2 $t-smooth_two, opacity $delay--total / 2 $t-smooth_two;
-
     transform: translate3d(0, 1.5rem, 0) rotateX(10deg) rotateY(-15deg) rotateZ(5deg);
     &.active {
       opacity: 1;
@@ -44,4 +41,16 @@
 
     }
   }
+}
+
+.about--picture {
+  img {
+    transition: transform $delay--total / 2 $t-smooth_two, opacity $delay--total / 2 $t-smooth_two;
+  }
+  &:hover {
+    img {
+      transform: translate3d(0, 1.5rem, 0) rotateX(10deg) rotateY(-15deg) rotateZ(5deg);
+    }
+  
+  } 
 }

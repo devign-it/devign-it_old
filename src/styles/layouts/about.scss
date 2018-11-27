@@ -5,7 +5,14 @@
 		position: relative;
 		justify-content: center;
 		align-items: center;
+		transition: transform $delay--total / 2 $t-smooth_two, opacity $delay--total / 2 $t-smooth_two;
+		&:hover {
 
+			img {
+				transform: translate3d(0, 1rem, 0) rotateX(10deg) rotateY(-15deg) rotateZ(5deg);
+				opacity: 0.75;
+			}
+		}
 		img {
 			transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0);
 			max-width: 25vh;
@@ -43,8 +50,5 @@ h3 {
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: $s-main / 2;
-
-
 	}
-
 }
