@@ -7,6 +7,6 @@
     "static",
     "ssg"
   ],
-  "repository": "https://github.com/danoszz/devign_resume",
+  "repository": "git@github.com:danoszz/devign_resume.git",
   "success_url": "/"
 }

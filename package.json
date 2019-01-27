@@ -12,7 +12,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danoszz/devign_resume.git"
+    "url": "git@github.com:danoszz/devign_resume.git"
   },
   "scripts": {
     "dev": "gatsby develop",
