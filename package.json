@@ -2,66 +2,53 @@
   "name": "devignit_resume",
   "version": "1.0.0",
   "description": "Digital resume for summer 2018",
-  "main": "gulpfile.js",
   "author": "Daan van der Zwaag - daan@devign.it",
   "license": "MIT",
+  "homepage": "https://resume.devign.it",
+  "keywords": [
+    "gatsby",
+    "contentful"
+  ],
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danoszz/devign_resume.git"
+  },
   "scripts": {
-    "start": "npm run server",
-    "server": "gulp server --watch",
-    "staging": "gulp server --staging",
-    "live": "gulp server --live"
+    "dev": "gatsby develop",
+    "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md' 'bin/*.js'",
+    "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
+    "setup": "node ./bin/setup.js",
+    "heroku-postbuild": "gatsby build",
+    "cleanup-repository": "rimraf bin contentful && yarn remove contentful-import chalk inquirer rimraf "
   },
   "dependencies": {
-    "events": "^3.0.0",
-    "fastclick": "^1.0.6",
-    "geo-arc": "^1.1.2",
-    "glsl-noise": "0.0.0",
-    "gsap": "^2.0.2",
-    "jquery": "^3.3.1",
-    "nk-css-reset": "^1.0.1",
-    "nk-css-utils": "^2.0.0",
-    "node-sass": "^4.9.3",
-    "swiper": "^4.4.1",
-    "underscore": "^1.9.1"
+    "gatsby-image": "^2.0.13",
+    "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-sass": "^2.0.7",
+    "gatsby-plugin-sharp": "^2.0.18",
+    "gatsby-source-contentful": "^2.0.2",
+    "gatsby-transformer-remark": "^2.1.6",
+    "gatsby-transformer-sharp": "^2.0.6",
+    "lodash": "^4.17.11",
+    "node-sass": "^4.11.0",
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1",
+    "react-helmet": "^5.2.0",
+    "sharp": "^0.21.0",
+    "swiper": "^4.4.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.0",
-    "babelify": "^10.0.0",
-    "browser-sync": "2.26.3",
-    "browserify": "^16.2.2",
-    "browserify-shim": "^3.8.14",
-    "colors": "^1.3.2",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "6.0.0",
-    "gulp-clean-css": "3.10.0",
-    "gulp-concat": "2.6.1",
-    "gulp-filter": "^5.1.0",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-notify": "^3.2.0",
-    "gulp-plumber": "1.2.0",
-    "gulp-rename": "1.4.0",
-    "gulp-sass": "4.0.2",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-template": "^5.0.0",
-    "gulp-uglify": "^3.0.1",
-    "gulp-util": "^3.0.8",
-    "lodash.assign": "^4.2.0",
-    "minimist": "^1.2.0",
-    "rimraf": "^2.6.2",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
-    "watchify": "^3.11.0"
-  },
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
-  },
-  "browserify-shim": {
-    "timelinemax": "global:TimelineMax",
-    "tweenmax": "global:TweenMax",
-    "jquery": "$",
-    "underscore": "_"
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.6.1",
+    "eslint-plugin-react": "^7.11.1",
+    "gatsby": "^2.0.18",
+    "gh-pages": "^2.0.1",
+    "prettier": "^1.14.3",
+    "yargs-parser": "^11.0.0"
   }
 }
