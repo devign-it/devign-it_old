@@ -2,12 +2,28 @@
 
 Created a _very static_ timeline and digital resume website. Includes a bit about me and some recent works. Big *WIP* for now.  From design to development to live < 48 hours.
 
-## To Do
+## Timelke
 
-- Fix untrue widths, margin and paddings of main column
-- Navigation (onclick, mouseleave, animation) less buggier
-- Create slide in animation sections
-- More CTA footer
+### Setup GatsbyJS + React + Contentful
+*[x] Unleash the GatsbyJS in project 🚀
+*[x] Setup connection Contentful
+*[] Turn static files in to dynamic React components
+*[] Load multiple images in projects through Contentful
+
+### Improve functionality
+*[] Navigation (onclick, mouseleave, animation) less buggier
+
+### Add functionality
+*[] Add blog post section
+*[] Add projcect pages for case studies
+
+### Refactor code
+*[] Component based styling, extracted from specific scss files
+*[] Remove jQuery and turn vanilla JS 🍦
+
+### Improve code
+*[] Implement Typescript
+
 
 ## Before everything
 - You'll need [Node](https://nodejs.org/) (which includes NPM).
@@ -20,19 +36,23 @@ $ npm install
 ```
 ## Run the project
 
-There is three kind of environments available : `dev`,  `staging`, `live`. To change the config of each environement you need to edit the __project.json__ file.
+Based on the [Gatsby Contentful Starter](https://github.com/contentful-userland/gatsby-contentful-starter)
 
-- Build and watch the app with __development configs__
+* Run project locally
 ```shell
-$ npm start
+yarn run dev
 ```
-* Build app with __staging config__
+* Run a production build into ./public. The result is ready to be put on any static hosting you prefer.
 ```shell
-$ npm run staging
+yarn run build
 ```
-* Build app with __live configs__
+* Run a production build into ./public and publish the site to GitHub pages.
 ```shell
-$ npm run live
+yarn run deploy
+```
+* Removes all dependencies, scripts and data from the installation script.
+```shell
+yarn run cleanup-repository
 ```
 
 ### License
