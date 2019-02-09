@@ -2,7 +2,7 @@
 
 Created a _very static_ timeline and digital resume website. Includes a bit about me and some recent works. Big *WIP* for now.  From design to development to live < 48 hours.
 
-## Timelke
+## Timeline
 
 ### Setup GatsbyJS + React + Contentful
 *[x] Unleash the GatsbyJS in project 🚀
@@ -14,8 +14,10 @@ Created a _very static_ timeline and digital resume website. Includes a bit abou
 *[] Navigation (onclick, mouseleave, animation) less buggier
 
 ### Add functionality
+*[] Add deployment on Netlify
 *[] Add blog post section
-*[] Add projcect pages for case studies
+*[] Add project pages for case studies
+*[] Add CI (Travis, Circle)
 
 ### Refactor code
 *[] Component based styling, extracted from specific scss files
@@ -23,6 +25,7 @@ Created a _very static_ timeline and digital resume website. Includes a bit abou
 
 ### Improve code
 *[] Implement Typescript
+*[] Implement testing with Jest or Travis
 
 
 ## Before everything
