@@ -1,34 +1,33 @@
 html {
-	box-sizing: border-box;
-	border-collapse: collapse;
-	line-height: 1;
-	-moz-osx-font-smoothing: grayscale;
-	background-color: $c-black;
+  box-sizing: border-box;
+  border-collapse: collapse;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $c-black;
 }
 
 * {
-	border-collapse: inherit;
+  border-collapse: inherit;
 }
 
 *,
 :after,
 :before {
-	box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 :not(body) {
-	background-position: 50%;
-	background-size: cover;
+  background-position: 50%;
+  background-size: cover;
 }
-
 
 ::selection {
-	color: $c-white;
-	background: $c-black;
+  color: $c-white;
+  background: $c-black;
 }
 main {
-	::selection {
-		color: $c-black;
-		background: $c-white;
-	}
+  ::selection {
+    color: $c-black;
+    background: $c-white;
+  }
 }
