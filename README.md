@@ -5,27 +5,27 @@ Created a _very static_ timeline and digital resume website. Includes a bit abou
 ## Timeline
 
 ### Setup GatsbyJS + React + Contentful
-*[x] Unleash the GatsbyJS in project 🚀
-*[x] Setup connection Contentful
-*[] Turn static files in to dynamic React components
-*[] Load multiple images in projects through Contentful
+* [x] Unleash the GatsbyJS in project 🚀
+* [x] Setup connection Contentful
+* [] Turn static files in to dynamic React components
+* [] Load multiple images in projects through Contentful
 
 ### Improve functionality
-*[] Navigation (onclick, mouseleave, animation) less buggier
+* [] Navigation (onclick, mouseleave, animation) less buggier
 
 ### Add functionality
-*[] Add deployment on Netlify
-*[] Add blog post section
-*[] Add project pages for case studies
-*[] Add CI (Travis, Circle)
+* [] Add deployment on Netlify
+* [] Add blog post section
+* [] Add project pages for case studies
+* [] Add CI (Travis, Circle)
 
 ### Refactor code
-*[] Component based styling, extracted from specific scss files
-*[] Remove jQuery and turn vanilla JS 🍦
+* [] Component based styling, extracted from specific scss files
+* [] Remove jQuery and turn vanilla JS 🍦
 
 ### Improve code
-*[] Implement Typescript
-*[] Implement testing with Jest or Travis
+* [] Implement Typescript
+* [] Implement testing with Jest or Travis
 
 
 ## Before everything
