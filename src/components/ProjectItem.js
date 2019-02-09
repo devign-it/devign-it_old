@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import Img from "gatsby-image";
 
 export const appendSwiperControls = () => (
   <div className="swiper-controls">
@@ -6,7 +7,8 @@ export const appendSwiperControls = () => (
     <div className="swiper-button-next" />
     <div className="swiper-button-prev" />
   </div>
-)
+);
+
 export default ({ project }) => (
   <article
     className={`project-item project-item__${project.slug}`}
@@ -22,21 +24,20 @@ export default ({ project }) => (
     <div className="project-item--slider swiper-container black">
       <div className="slider--items swiper-wrapper">
         <div className="swiper-slide">
-          <img
+          {/* <img
             className="project-item--image"
-            src="assets/images/projects/madebyrens/madebyrens-website_rec_frame.gif"
-            alt="Website introduction scrolling of madebyrens.com"
-          />
-          <p className="project-item--description">
-            Little big details and animations where a important addition to the
-            minimalism
-          </p>
+            src={project.featuredImage.fluid.src}
+            alt={project.imag}
+          /> */}
+
+          <Img className="project-item--image" alt={project.featuredImage.description} fluid={project.featuredImage.fluid} />
+          <p className="project-item--description" />
         </div>
         <div className="swiper-slide">
           <div
             className="project-item--description__text"
             dangerouslySetInnerHTML={{
-              __html: project.description.childMarkdownRemark.html,
+              __html: project.description.childMarkdownRemark.html
             }}
           />
         </div>
@@ -44,4 +45,4 @@ export default ({ project }) => (
       {appendSwiperControls()}
     </div>
   </article>
-)
+);
