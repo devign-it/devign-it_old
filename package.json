@@ -27,24 +27,26 @@
     "cleanup-repository": "rimraf bin contentful && yarn remove contentful-import chalk inquirer rimraf "
   },
   "dependencies": {
+    "@contentful/gatsby-transformer-contentful-richtext": "^13.0.1",
     "gatsby-cli": "^2.4.8",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sass": "^2.0.7",
-    "gatsby-plugin-sharp": "^2.0.18",
+    "gatsby-plugin-sharp": "^2.0.22",
     "gatsby-plugin-typescript": "^2.0.7",
     "gatsby-source-contentful": "^2.0.2",
     "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-remark": "^2.1.6",
-    "gatsby-transformer-sharp": "^2.0.6",
+    "gatsby-transformer-sharp": "^2.1.14",
     "gsap": "^2.0.2",
     "jquery": "^3.3.1",
     "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
+    "npm-check-updates": "^3.1.7",
     "react": "^16.8.0-alpha.1",
     "react-dom": "^16.8.0-alpha.1",
     "react-helmet": "^5.2.0",
-    "sharp": "^0.21.0",
+    "sharp": "^0.22.0",
     "swiper": "^4.4.6",
     "typescript": "^3.3.3"
   },
@@ -55,6 +57,6 @@
     "gatsby": "^2.0.18",
     "gh-pages": "^2.0.1",
     "prettier": "^1.14.3",
-    "yargs-parser": "^11.0.0"
+    "yargs-parser": "^13.0.0"
   }
 }
