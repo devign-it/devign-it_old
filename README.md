@@ -8,8 +8,6 @@ See current progress at [issues](https://github.com/danoszz/devign_resume/issues
 
 ## Get started
 
-**Before starting**
-
 - You'll need [Node](https://nodejs.org/) (which includes NPM).
 - Install Gulp using `npm install -g gulp`. This installs Gulp globally and is needed later.
 
@@ -23,29 +21,11 @@ git clone https://github.com/danoszz/devign_resume && cd devign_resume && npm i
 
 Based on the [Gatsby Contentful Starter](https://github.com/contentful-userland/gatsby-contentful-starter)
 
-- Run project locally
+- Run project locally: `yarn run dev`
 
-```shell
-yarn run dev
-```
+- Run a production build into ./public: `yarn run build`
 
-- Run a production build into ./public. The result is ready to be put on any static hosting you prefer.
-
-```shell
-yarn run build
-```
-
-- Run a production build into ./public and publish the site to GitHub pages.
-
-```shell
-yarn run deploy
-```
-
-- Removes all dependencies, scripts and data from the installation script.
-
-```shell
-yarn run cleanup-repository
-```
+- Removes all dependencies, scripts and data from the installation script: `yarn run cleanup-repository`
 
 ### License
 
