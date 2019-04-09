@@ -2,12 +2,9 @@
 
 Created a _very static_ timeline and digital resume website. Includes a bit about me and some recent works. Big *WIP* for now.  From design to development to live < 48 hours.
 
-## To Do
+## Important note
 
-- Fix untrue widths, margin and paddings of main column
-- Navigation (onclick, mouseleave, animation) less buggier
-- Create slide in animation sections
-- More CTA footer
+> Switch to the `react` branch to follow latest updates towards new release 1st May 2019 💁‍♂️
 
 ## Before everything
 - You'll need [Node](https://nodejs.org/) (which includes NPM).
