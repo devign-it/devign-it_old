@@ -1,51 +1,25 @@
-# 🌞 A quick digital resume for summer 2018
+# 🌞 Resume 2019 build w/ Gatsby.js
 
 Transition to a dynamic website with the SSR Gatsby. Learning React.js, Serverless deployments and CI. Still the old portfolio, just with new content and fire elements.
 
 ## Timeline
 
-### Setup GatsbyJS + React + Contentful
+See current progress at [issues](https://github.com/danoszz/devign_resume/issues) page.
 
-- [x] Unleash the GatsbyJS in project 🚀
-- [x] Setup connection Contentful
-- [ ] Turn static files in to dynamic React components
-- [ ] Load multiple images in projects through Contentful
+## Get started
 
-### Improve functionality
-
-- [ ] Navigation (onclick, mouseleave, animation) less buggier
-
-### Add functionality
-
-- [ ] Add deployment on Netlify
-- [ ] Add blog post section
-- [ ] Add dark/light mode [toggle](https://codepen.io/danoszz/pen/JwKPyR)
-- [ ] Add project pages for case studies
-- [ ] Add CI (Travis, Circle)
-
-### Refactor code
-
-- [ ] Component based styling, extracted from specific scss files
-- [ ] Remove jQuery and turn vanilla JS 🍦
-
-### Improve code
-
-- [ ] Implement Typescript
-- [ ] Implement testing with Jest or Travis
-
-## Before everything
+**Before starting**
 
 - You'll need [Node](https://nodejs.org/) (which includes NPM).
 - Install Gulp using `npm install -g gulp`. This installs Gulp globally and is needed later.
-- Clone this repo to your local computer
-- Edit project.json with your datas
-- Install the nodes modules
+
+### Local setup
 
 ```shell
-$ npm install
+git clone https://github.com/danoszz/devign_resume && cd devign_resume && npm i
 ```
 
-## Run the project
+### Run the project
 
 Based on the [Gatsby Contentful Starter](https://github.com/contentful-userland/gatsby-contentful-starter)
 
