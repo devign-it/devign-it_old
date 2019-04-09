@@ -1,5 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
+import { stringify } from "querystring";
 
 export const appendSwiperControls = () => (
   <div className="swiper-controls">
@@ -23,16 +24,21 @@ export default ({ project }) => (
     </div>
     <div className="project-item--slider swiper-container black">
       <div className="slider--items swiper-wrapper">
-        <div className="swiper-slide">
-          {/* <img
-            className="project-item--image"
-            src={project.featuredImage.fluid.src}
-            alt={project.imag}
-          /> */}
+        {project.images.map(({ node }, i) => (
+          <div className="swiper-slide">
+            <Img
+              fadeIn={false}
+              key={i}
+              className="project-item--image"
+              alt={project.images.description}
+              fluid={project.images[i].fluid}
+            />
+            <p className="project-item--description">
+              {project.images[i].description}
+            </p>
+          </div>
+        ))}
 
-          <Img className="project-item--image" alt={project.featuredImage.description} fluid={project.featuredImage.fluid} />
-          <p className="project-item--description" />
-        </div>
         <div className="swiper-slide">
           <div
             className="project-item--description__text"
