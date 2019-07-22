@@ -64,7 +64,8 @@ public
 .cache
 
 # contentful config file
+.contentful.json 
+# secrets
 .contentful.json
-
-# src of old website files
-src_old_static
+.env*
+!.env.example

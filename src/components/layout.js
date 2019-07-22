@@ -3,26 +3,29 @@ import get from "lodash/get";
 import PageContent from "./PageContent";
 import Navigation from "./Navigation";
 import Helmet from "react-helmet";
-import Hero from "./Hero";
 import { changeDocumentTitle } from "./SiteTitle";
+import AnimatedQuote from "./AnimatedQuote";
 
 export default class LayoutHome extends React.Component {
-  componentDidMount() {
-    changeDocumentTitle();
-    // quoteAnimation();
-  }
+    componentDidMount() {
+        changeDocumentTitle();
+        // quoteAnimation();
+    }
 
-  render() {
-    const siteTitle = get(this, "props.data.site.siteMetadata.title");
-    const { children } = this.props;
+    render() {
+        console.log(this.props);
+        const siteTitle = get(this, "props.data.site.siteMetadata.title");
+        const { children } = this.props;
 
-    return (
-      <div className="layoutHome">
-        <Helmet title={siteTitle} />
-        <Hero />
-        <Navigation />
-        <PageContent>{children}</PageContent>
-      </div>
-    );
-  }
+        return (
+            <div className="layoutHome">
+                <Helmet title={siteTitle} />
+                <AnimatedQuote>
+                    Shaping the digital world is what I like and do
+                </AnimatedQuote>
+                <Navigation />
+                <PageContent>{children}</PageContent>
+            </div>
+        );
+    }
 }
