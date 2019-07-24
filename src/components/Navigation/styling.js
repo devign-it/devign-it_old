@@ -3,9 +3,13 @@ import styled from "styled-components";
 /*
 border 1.5px solid $c-white
 border-color: $c-white
+
+@media screen and (min-width: $tablet-breakpoint) {
+    top: $s-main / 2;
+    border: 3px solid $c-white;
 */
 
-export const Container = styled.nav`
+export default styled.nav`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -19,56 +23,16 @@ export const Container = styled.nav`
     border: 1.5px solid white;
     border-color: white;
 
-    /* @media screen and (min-width: $tablet-breakpoint) {
-        top: $s-main / 2;
-        border: 3px solid $c-white;
+    @media screen and (min-width: 600px) {
+        top: calc(8rem / 2);
+        border: 3px solid white;
 
         margin: 0;
         width: 100%;
-    } */
-
-    &--item {
-        width: calc(10 / 3%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        height: $s-main / 1.5;
-        background-color: $c-black;
-        border-right: 1.5px solid $c-white;
-        border-color: $c-white;
-        @media screen and (min-width: $tablet-breakpoint) {
-            height: $s-main;
-            padding: 0;
-            background-color: inherit;
-            border-right: 3px solid $c-white;
-        }
-        h2 {
-            padding: 0;
-            margin: 0;
-            text-align: center;
-            transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0);
-            transform-style: preserve-3d;
-        }
-
-        &:after,
-        &:before {
-            content: none;
-        }
-
-        &:last-child {
-            border-right: 0;
-        }
-
-        &.isActive {
-            background-color: $c-white;
-            color: $c-black;
-        }
     }
 
-    // State classes an animations
-
-    &.isSticky {
+    // State classes an animations --- Is for animaton of nav -- right now not in use
+    /* &.isSticky {
         animation: menuCollapse__out__mobile $delay--total / 2 $t-smooth_one 1 both;
         .main-navigation--item {
             animation: menuItemCollapse__out__mobile $delay--total / 2 $t-smooth_one 1
@@ -204,5 +168,5 @@ export const Container = styled.nav`
                 }
             }
         }
-    }
+    } */
 `;
