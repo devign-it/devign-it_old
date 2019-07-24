@@ -1,33 +1,16 @@
 import React from "react";
-import { Link } from "gatsby";
 
-import { Container } from "./styling";
+import NavigationItem from "../NavigationItem";
+
+import NavigationContainer from "./styling";
 
 const Navigation = () => (
-    <Container role="navigation">
-        <div className="main-navigation--item">
-            <h2>
-                <Link activeClassName={"isActive"} to="/">
-                    Projects
-                </Link>
-            </h2>
-        </div>
-        <div className="main-navigation--item">
-            <h2>
-                <Link to="/about/">About</Link>
-            </h2>
-        </div>
-        <div className="main-navigation--item">
-            <h2>
-                <Link to="/resume/">Resume</Link>
-            </h2>
-        </div>
-        <div className="main-navigation--item">
-            <h2>
-                <Link to="/blog/">Blog</Link>
-            </h2>
-        </div>
-    </Container>
+    <NavigationContainer role="navigation">
+        <NavigationItem text="Projects" to={""} />
+        <NavigationItem text="About" to={"about"} />
+        <NavigationItem text="Resume" to={"resume"} />
+        <NavigationItem text="Blog" to={"blog"} />
+    </NavigationContainer>
 );
 
 export default Navigation;
