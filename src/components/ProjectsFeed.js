@@ -1,32 +1,30 @@
-import React from 'react'
-import ProjectItem from './ProjectItem'
-import Swiper from 'swiper'
+import React from "react";
+import ProjectItem from "./ProjectItem";
+import Swiper from "swiper";
 
 export const initializeSwiper = () =>
-  new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 50,
-    loop: true,
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'fraction',
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  })
+    new Swiper(".swiper-container", {
+        slidesPerView: 1,
+        spaceBetween: 50,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            type: "fraction",
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
 
 export const ProjectsFeed = ({ feedSource }) => {
-  return (
-    <div className="main-container--text-container">
-      <section className="text-container--projects">
-        <div className="projects--container">
-          {feedSource.map(({ node }) => {
-            return <ProjectItem project={node} key={node.slug} />
-          })}
-        </div>
-      </section>
-    </div>
-  )
-}
+    return (
+        <section className="text-container--projects">
+            <div className="projects--container">
+                {feedSource.map(({ node }) => {
+                    return <ProjectItem project={node} key={node.slug} />;
+                })}
+            </div>
+        </section>
+    );
+};
