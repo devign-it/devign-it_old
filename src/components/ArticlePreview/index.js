@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 
-export default ({ article }) => (
+const ArticlePreview = ({ article }) => (
     <div>
         <Img alt="" fluid={article.heroImage.fluid} />
         <h3>
@@ -16,3 +16,5 @@ export default ({ article }) => (
         />
     </div>
 );
+
+export default ArticlePreview;

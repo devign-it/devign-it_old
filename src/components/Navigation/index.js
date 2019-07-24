@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "gatsby";
 
-export default () => (
-    <nav role="navigation" className="main-navigation">
+import { Container } from "./styling";
+
+const Navigation = () => (
+    <Container role="navigation">
         <div className="main-navigation--item">
             <h2>
                 <Link activeClassName={"isActive"} to="/">
@@ -25,5 +27,7 @@ export default () => (
                 <Link to="/blog/">Blog</Link>
             </h2>
         </div>
-    </nav>
+    </Container>
 );
+
+export default Navigation;
