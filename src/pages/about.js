@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import LayoutHome from "../components/layout";
+import Layout from "../components/layout";
 import get from "lodash/get";
 
 import TextContainer from "../components/TextContainer";
@@ -14,7 +14,7 @@ import AboutImage from "../components/AboutImage";
 const RootIndex = ({ data, location }) => {
     console.log(data);
     return (
-        <LayoutHome location={location}>
+        <Layout location={location}>
             <section className="text-container--about">
                 <div className="container--col">
                     <AboutImage
@@ -98,7 +98,7 @@ const RootIndex = ({ data, location }) => {
                     </TextContainer>
                 </div>
             </section>
-        </LayoutHome>
+        </Layout>
     );
 };
 
