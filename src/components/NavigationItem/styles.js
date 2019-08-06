@@ -27,12 +27,14 @@ export const NavigationItemContainer = styled.div`
         border-right: 3px solid $c-white;
     } */
 
-    h2 {
+    h2 a {
         padding: 0;
         margin: 0;
         text-align: center;
         transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0);
         transform-style: preserve-3d;
+        color: inherit;
+        text-decoration: none;
     }
 
     &:after,

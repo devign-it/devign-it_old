@@ -28,11 +28,11 @@ export default styled.nav`
         border: 3px solid white;
 
         margin: 0;
-        width: 100%;
+        /* width: 100%; */
     }
 
     // State classes an animations --- Is for animaton of nav -- right now not in use
-    &.isSticky {
+    /* &.isSticky {
         animation: menuCollapse__out__mobile $delay--total / 2 $t-smooth_one 1 both;
         .main-navigation--item {
             animation: menuItemCollapse__out__mobile $delay--total / 2 $t-smooth_one 1 both;
@@ -43,11 +43,11 @@ export default styled.nav`
         .main-navigation--item {
             animation: menuItemCollapse__in__mobile $delay--total / 2 $t-smooth_one 1 both;
         }
-    }
+    } */
 
     // Keyframes for main-navigation
     // ANIMATE OUT MOBILE
-    @keyframes menuCollapse__out__mobile {
+    /* @keyframes menuCollapse__out__mobile {
         0% {
             width: 100%;
             margin-left: 0;
@@ -65,12 +65,12 @@ export default styled.nav`
         100% {
             height: $s-main / 2;
         }
-    }
+    } */
 
     // Keyframes for main-navigation
     // ANIMATE IN MOBILE
 
-    @keyframes menuCollapse__in__mobile {
+    /* @keyframes menuCollapse__in__mobile {
         0% {
             width: 100vw;
             margin-left: -$s-main / 4;
@@ -88,9 +88,9 @@ export default styled.nav`
         100% {
             height: $s-main / 1.5;
         }
-    }
+    } */
 
-    @media screen and (min-width: $tablet-breakpoint) {
+    /* @media screen and (min-width: $tablet-breakpoint) {
         &.isStatic {
             animation: menuCollapse__out $delay--total * 1.25 $t-smooth_one 1 both;
 
@@ -370,5 +370,5 @@ export default styled.nav`
                 transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0);
             }
         }
-    }
+    } */
 `;
