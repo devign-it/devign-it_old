@@ -1,4 +1,15 @@
-.main-navigation {
+import styled from "styled-components";
+
+/*
+border 1.5px solid $c-white
+border-color: $c-white
+
+@media screen and (min-width: $tablet-breakpoint) {
+    top: $s-main / 2;
+    border: 3px solid $c-white;
+*/
+
+export default styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -9,8 +20,8 @@
     border-radius: inherit;
     position: sticky;
     top: 0;
-    // border: 1.5px solid $c-white;
-    // border-color: $c-white;
+    /* border: 1.5px solid $c-white;
+     border-color: $c-white; */
 
     @media screen and (min-width: $tablet-breakpoint) {
         top: $s-main / 2;
@@ -26,15 +37,14 @@
         align-items: center;
         overflow: hidden;
         height: $s-main / 1.5;
-        background-color: $c-black;
-        // border-right: 1.5px solid $c-white;
-        // border-color: $c-white;
+        border-right: 1.5px solid $c-white;
+        border-color: $c-white;
 
         @media screen and (min-width: $tablet-breakpoint) {
             height: $s-main;
             padding: 0;
             background-color: inherit;
-            // border-right: 3px solid $c-white;
+            border-right: 3px solid $c-white;
         }
 
         h2 {
@@ -419,3 +429,4 @@
         transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0);
     }
 }
+;

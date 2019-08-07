@@ -15,10 +15,10 @@ export const Container = styled.ul`
     column-gap: 0;
     list-style: none;
     width: auto;
-    max-width: calc(6rem * 8);
+    max-width: calc($s-main * 8);
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: calc(6rem / 2);
+    margin-bottom: calc($s-main / 2);
 `;
 
 export default Container;

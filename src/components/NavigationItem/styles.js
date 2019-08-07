@@ -16,7 +16,6 @@ export const NavigationItemContainer = styled.div`
     align-items: center;
     overflow: hidden;
     height: calc(8rem / 1.5);
-    background-color: black;
     border-right: 1.5px solid white;
     border-color: white;
 
