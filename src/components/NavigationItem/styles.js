@@ -1,15 +1,6 @@
 import styled from "styled-components";
 import { breakpoints, colors, sizes, easings, delays, vars } from "../../config/variable";
 
-/*
-    height: $s-main / 1.5;
-    background-color: $c-black;
-    border-right: 1.5px solid $c-white;
-
-    background-color: $c-white;
-    color: $c-black;
-*/
-
 export const NavigationItemContainer = styled.div`
     width: calc(100% / 4);
     display: flex;
