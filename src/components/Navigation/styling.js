@@ -1,14 +1,15 @@
 import styled from "styled-components";
+import { breakpoints, colors, sizes, easings, delays } from "../../config/variable";
 
-import { breakpoints, colors, sizes, easings, delays, vars } from "../../config/variable";
-/*
-border 1.5px solid ${colors.white}
-border-color: ${colors.white}
+// const sizes = {..sizes, }
 
-@media screen and (min-width: $tablet-breakpoint) {
-    top: calc(${sizes.sMain} / 2;
-    border: 3px solid ${colors.white};
-*/
+// export const DemoWrapper = styled.div`
+//     background-color: red;
+//     min-height: calc(6rem);
+//     background-color: red;
+//     overflow: hidden;
+//     max-height: calc(6rem);
+// `;
 
 export default styled.div`
     display: flex;
@@ -20,54 +21,17 @@ export default styled.div`
     z-index: 15;
     border-radius: inherit;
     position: sticky;
+    height: calc(${sizes.sMain} - 6px);
     top: calc(${sizes.sMain} / 2);
-    border: 1.5px solid ${colors.white};
+    border: 3px solid ${colors.white};
+    overflow: hidden;
 
     @media screen and (min-width: ${breakpoints.tabletBreakpoint}) {
         top: calc(${sizes.sMain} / 2);
         border: 3px solid ${colors.white};
         margin: 0;
         width: 100%;
-    }
-
-    & > .main-navigation--item {
-        width: calc(100% / 3);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        height: calc(${sizes.sMain} / 1.5);
-        background-color: ${colors.black};
-        border-right: 1.5px solid ${colors.white};
-
-        @media screen and (min-width: 600) {
-            height: ${sizes.sMain};
-            padding: 0;
-            background-color: inherit;
-            border-right: 3px solid ${colors.white};
-        }
-
-        h2 {
-            padding: 0;
-            margin: 0;
-            text-align: center;
-            transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0);
-            transform-style: preserve-3d;
-        }
-
-        &:after,
-        &:before {
-            content: none;
-        }
-
-        &:last-child {
-            border-right: 0;
-        }
-
-        &.isActive {
-            background-color: ${colors.white};
-            color: ${colors.black};
-        }
+        height: calc(${sizes.sMain} - 6px);
     }
 
     &.isSticky {
@@ -161,13 +125,13 @@ export default styled.div`
             }
 
             &.isClosed {
-                animation: menuCollapse__in ${delays.delayTotal} ${easings.tSmoothOne} 1 forwards;
+                animation: menuCollapse__in calc(${delays.delayTotal}) ${easings.tSmoothOne} 1 forwards;
 
                 .main-navigation--item {
-                    animation: menuItemCollapse__in ${delays.delayTotal} ${easings.tSmoothOne} 1 both;
+                    animation: menuItemCollapse__in calc(${delays.delayTotal}) ${easings.tSmoothOne} 1 both;
 
                     h2 {
-                        animation: menuItemTextCollapse__in ${delays.delayTotal} ${easings.tSmoothOne} 1 both;
+                        animation: menuItemTextCollapse__in calc(${delays.delayTotal}) ${easings.tSmoothOne} 1 both;
                     }
                 }
             }
@@ -191,6 +155,10 @@ export default styled.div`
                 }
 
                 &:nth-child(3) h2 {
+                    animation-delay: calc(${delays.delayTotal} / 6 + ${delays.delayTotal} / 6);
+                }
+
+                &:nth-child(4) h2 {
                     animation-delay: calc(${delays.delayTotal} / 6 + ${delays.delayTotal} / 6);
                 }
             }
@@ -258,8 +226,8 @@ export default styled.div`
     }
 
     100% {
-        top: calc(${sizes.sMain} / 1.5);
-        margin: calc(${sizes.sMain} / 4) calc(${sizes.sMain} / 4) calc(${sizes.sMain} / 4) 0;
+        top: calc(${sizes.sMain} / 2);
+        /* margin: calc(${sizes.sMain} / 4) calc(${sizes.sMain} / 4) calc(${sizes.sMain} / 4) 0; */
         height: calc(${sizes.sMain} / 2);
         width: calc(${sizes.sMain} / 2);
         overflow: hidden;
@@ -315,7 +283,7 @@ export default styled.div`
 @keyframes menuCollapse__out {
     0% {
         top: calc(${sizes.sMain} / 1.5);
-        height: calc(${sizes.sMain} / 2);
+        height: calc(${sizes.sMain} / 2 - 6px);
         width: calc(${sizes.sMain} / 2);
         margin: calc(${sizes.sMain} / 4) calc(${sizes.sMain} / 4) calc(${sizes.sMain} / 4) 0;
         overflow: hidden;
@@ -324,7 +292,7 @@ export default styled.div`
 
     20% {
         top: calc(${sizes.sMain} / 2);
-        height: calc(${sizes.sMain});
+        height: calc(${sizes.sMain} - 6px);
         width: calc(${sizes.sMain});
         overflow: hidden;
         margin: 0;
@@ -333,7 +301,7 @@ export default styled.div`
 
     25% {
         top: calc(${sizes.sMain} / 2);
-        height: calc(${sizes.sMain});
+        height: calc(${sizes.sMain} - 6px);
         width: calc(${sizes.sMain});
         overflow: hidden;
         border-radius: 50%;
@@ -341,7 +309,7 @@ export default styled.div`
 
     45% {
         top: calc(${sizes.sMain} / 2);
-        height: calc(${sizes.sMain});
+        height: calc(${sizes.sMain} - 6px);
         width: calc(${sizes.sMain});
         overflow: hidden;
         border-radius: inherit;
@@ -349,7 +317,7 @@ export default styled.div`
 
     50% {
         top: calc(${sizes.sMain} / 2);
-        height: calc(${sizes.sMain});
+        height: calc(${sizes.sMain} - 6px);
         width: calc(${sizes.sMain});
         overflow: hidden;
         border-radius: inherit;
@@ -358,14 +326,14 @@ export default styled.div`
     75% {
         top: calc(${sizes.sMain} / 2);
         width: inherit;
-        height: inherit;
+        height: calc(${sizes.sMain} - 6px);
         border-radius: inherit;
     }
 
     100% {
         top: calc(${sizes.sMain} / 2);
         width: inherit;
-        height: inherit;
+        height: calc(${sizes.sMain} - 6px);
         border-radius: inherit;
     }
 }
