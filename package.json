@@ -17,7 +17,7 @@
     "geo-arc": "^1.1.2",
     "glsl-noise": "0.0.0",
     "gsap": "^2.1.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "nk-css-reset": "^1.0.1",
     "nk-css-utils": "^2.0.0",
     "node-sass": "^4.11.0",
