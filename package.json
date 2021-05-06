@@ -22,7 +22,7 @@
     "nk-css-utils": "^2.0.0",
     "node-sass": "^4.11.0",
     "swiper": "^4.5.0",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
